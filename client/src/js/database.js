@@ -46,9 +46,13 @@ const jateDb = await openDB('jate', 1);
 const tx = jateDb.transaction('jate','readonly');
 //open the store we want
 const store = tx.objectStore('jate');
+// using get all to get all the data in the database 
+const request = store.getAll();
 
+//confirmation of the request 
+const result = await request;
+console.log(result);
+return result;
 
-
-
-}
+};
 initdb();
